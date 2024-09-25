@@ -11,7 +11,7 @@ class FizzBuzzTest {
   @ParameterizedTest
   @ValueSource(ints = {-1, -2, -15, Integer.MIN_VALUE})
   void valueOf_negativeInput(int value) {
-    class NegativeFizzBuzzExecutable implements Executable {
+    Executable task = new Executable() {
 
       @Override
       public void execute() throws Throwable {
@@ -19,8 +19,8 @@ class FizzBuzzTest {
         fb.valueOf(value);
       }
 
-    }
-    assertThrows(IllegalArgumentException.class, new NegativeFizzBuzzExecutable());
+    };
+    assertThrows(IllegalArgumentException.class, task);
   }
 
 }
