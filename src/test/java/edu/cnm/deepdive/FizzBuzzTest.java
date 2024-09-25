@@ -32,19 +32,19 @@ class FizzBuzzTest {
   @ParameterizedTest
   @ValueSource(ints = {3, 6, 99, Integer.MAX_VALUE - 4})
   void valueOf_fizz(int value) {
-    assertEquals("Fizz", new FizzBuzz().valueOf(value));
+    assertEquals(FizzBuzz.FIZZ_RESULT, new FizzBuzz().valueOf(value));
   }
 
   @ParameterizedTest
   @ValueSource(ints = {55, 100, 250, Integer.MAX_VALUE - 2})
   void valueOf_buzz(int value) {
-    assertEquals("Buzz", new FizzBuzz().valueOf(value));
+    assertEquals(FizzBuzz.BUZZ_RESULT, new FizzBuzz().valueOf(value));
   }
 
   @ParameterizedTest
   @ValueSource(ints = {0, 90, 255, Integer.MAX_VALUE - 7})
   void valueOf_fizzBuzz(int value) {
-    assertEquals("FizzBuzz", new FizzBuzz().valueOf(value));
+    assertEquals(FizzBuzz.FIZZ_BUZZ_RESULT, new FizzBuzz().valueOf(value));
   }
 
 
