@@ -6,17 +6,13 @@ public class FizzBuzz {
     if (input < 0) {
       throw new IllegalArgumentException("Input must not be negative.");
     }
-    String output = "";
-    if (input % 3 == 0) {
-      output = "Fizz";
-    }
-    if (input % 5 == 0) {
-      output += "Buzz";
-    }
-    if (output.isEmpty()) {
-      output = String.valueOf(input);
-    }
-    return output;
+
+    return switch (input % 15) {
+      case 0 -> "FizzBuzz";
+      case 3, 6, 9, 12 -> "Fizz";
+      case 5, 10 -> "Buzz";
+      default -> String.valueOf(input);
+    };
   }
 
 }
