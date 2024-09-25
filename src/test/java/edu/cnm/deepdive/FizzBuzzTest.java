@@ -23,5 +23,18 @@ class FizzBuzzTest {
     assertThrows(IllegalArgumentException.class, task);
   }
 
+  @ParameterizedTest
+  @ValueSource(ints = {1, 11, Integer.MAX_VALUE, 97})
+  void valueOf_neither(int value) {
+    assertEquals(String.valueOf(value), new FizzBuzz().valueOf(value));
+  }
+
+  @ParameterizedTest
+  @ValueSource(ints = {3, 6, 99, Integer.MAX_VALUE - 4})
+  void valueOf_fizz(int value) {
+    assertEquals("Fizz", new FizzBuzz().valueOf(value));
+  }
+
+
 }
 

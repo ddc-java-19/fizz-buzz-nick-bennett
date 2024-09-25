@@ -6,7 +6,13 @@ public class FizzBuzz {
     if (input < 0) {
       throw new IllegalArgumentException("Input must not be negative.");
     }
-    throw new UnsupportedOperationException("Not yet implemented");
+    String output = "";
+    if (input % 3 == 0) {
+      output = "Fizz";
+    } else {
+      output = String.valueOf(input);
+    }
+    return output;
   }
 
 }
