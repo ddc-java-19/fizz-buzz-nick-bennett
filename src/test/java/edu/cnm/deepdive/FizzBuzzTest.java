@@ -10,7 +10,7 @@ class FizzBuzzTest {
 
   @ParameterizedTest
   @ValueSource(ints = {-1, -2, -15, Integer.MIN_VALUE})
-  void valueOf_negativeInput(int value) {
+  void valueOf_invalid(int value) {
     Executable task = new Executable() {
 
       @Override
@@ -33,6 +33,18 @@ class FizzBuzzTest {
   @ValueSource(ints = {3, 6, 99, Integer.MAX_VALUE - 4})
   void valueOf_fizz(int value) {
     assertEquals("Fizz", new FizzBuzz().valueOf(value));
+  }
+
+  @ParameterizedTest
+  @ValueSource(ints = {55, 100, 250, Integer.MAX_VALUE - 2})
+  void valueOf_buzz(int value) {
+    assertEquals("Buzz", new FizzBuzz().valueOf(value));
+  }
+
+  @ParameterizedTest
+  @ValueSource(ints = {0, 90, 255, Integer.MAX_VALUE - 7})
+  void valueOf_fizzBuzz(int value) {
+    assertEquals("FizzBuzz", new FizzBuzz().valueOf(value));
   }
 
 
