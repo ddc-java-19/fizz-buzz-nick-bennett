@@ -1,22 +1,28 @@
 package edu.cnm.deepdive;
 
-public class FizzBuzz {
+import java.util.EnumSet;
+import java.util.Set;
 
-  public static final String FIZZ_RESULT = "Fizz";
-  public static final String BUZZ_RESULT = "Buzz";
-  public static final String FIZZ_BUZZ_RESULT = FIZZ_RESULT + BUZZ_RESULT;
+public enum FizzBuzz {
 
-  public String valueOf(int input) {
+  FIZZ, BUZZ;
+
+  public static Set<FizzBuzz> valueOf(int input) {
     if (input < 0) {
       throw new IllegalArgumentException("Input must not be negative.");
     }
 
-    return switch (input % 15) {
-      case 0 -> FIZZ_BUZZ_RESULT;
-      case 3, 6, 9, 12 -> FIZZ_RESULT;
-      case 5, 10 -> BUZZ_RESULT;
-      default -> String.valueOf(input);
-    };
+    Set<FizzBuzz> result = EnumSet.noneOf(FizzBuzz.class);
+
+    if (input % 3 == 0) {
+      result.add(FIZZ);
+    }
+
+    if (input % 5 == 0) {
+      result.add(BUZZ);
+    }
+
+    return result;
   }
 
 }

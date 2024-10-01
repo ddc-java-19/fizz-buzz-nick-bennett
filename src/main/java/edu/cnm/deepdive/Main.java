@@ -1,12 +1,13 @@
 package edu.cnm.deepdive;
 
+import java.util.Set;
+
 public class Main {
 
   public static void main(String[] args) {
-    FizzBuzz fb = new FizzBuzz();
     for (int counter = 1; counter <= 100; counter++) {
-      String result = fb.valueOf(counter);
-      System.out.println(result);
+      Set<FizzBuzz> result = FizzBuzz.valueOf(counter);
+      System.out.println(result.isEmpty() ? counter : result);
     }
   }
 
