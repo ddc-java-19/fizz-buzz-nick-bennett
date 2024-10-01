@@ -11,16 +11,7 @@ class FizzBuzzTest {
   @ParameterizedTest
   @ValueSource(ints = {-1, -2, -15, Integer.MIN_VALUE})
   void valueOf_invalid(int value) {
-    Executable task = new Executable() {
-
-      @Override
-      public void execute() throws Throwable {
-        FizzBuzz fb = new FizzBuzz();
-        fb.valueOf(value);
-      }
-
-    };
-    assertThrows(IllegalArgumentException.class, task);
+    assertThrows(IllegalArgumentException.class, () -> new FizzBuzz().valueOf(value));
   }
 
   @ParameterizedTest
